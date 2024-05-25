@@ -28,3 +28,27 @@ let person: { name: string; age: number; isProgrammer?: boolean; } = {
   name: "John",
   age: 28,
 };
+
+// type and interface
+
+type PersonDetails = {
+  name: string,
+  age: number,
+  isProgrammer?: boolean;
+  address: {
+    street: string;
+  };
+};
+
+interface PersonDetails2 {
+  name: string,
+  age: number,
+  isProgrammer?: boolean;
+  address: {
+    street: string;
+  };
+};
+
+let person2: PersonDetails;
+
+

@@ -30,3 +30,31 @@ let person: { name: string; age: number; isProgrammer?: boolean; } = {
   age: 28,
 };
 ```
+
+## Define a type and re use at multiple objects
+
+```JSX
+type PersonDetails = {
+  name: string,
+  age: number,
+  isProgrammer?: boolean;
+};
+
+type PersonName = number
+```
+
+alternate way of defining a type is using an interface. Interface only works on objects
+
+```JSX
+interface PersonDetails2 {
+  name: string,
+  age: number,
+  isProgrammer?: boolean;
+  address: {
+    street: string;
+  };
+};
+
+// -- not possible --
+// interface PersonName = number
+```
