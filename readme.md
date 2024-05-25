@@ -44,6 +44,7 @@ type PersonName = number
 ```
 
 alternate way of defining a type is using an interface. Interface only works on objects
+Union cannot be used with 2 interfaces.
 
 ```JSX
 interface PersonDetails2 {
