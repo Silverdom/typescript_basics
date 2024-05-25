@@ -21,3 +21,10 @@ n = [1, 2, 3];
 
 // Literal type does not work on objects as they are passed by ref
 const o = [1, 2, 3];
+
+// Object types
+
+let person: { name: string; age: number; isProgrammer?: boolean; } = {
+  name: "John",
+  age: 28,
+};
