@@ -52,3 +52,25 @@ interface PersonDetails2 {
 let person2: PersonDetails;
 
 
+// Function type
+
+function printName(name: string, age: number) {
+  console.log(name);
+}
+
+function sum(a: number, b: number): number | null {
+  if (typeof a == "number" || typeof b == "number") {
+    return a + b;
+  } else {
+    return null;
+  }
+}
+
+function printPerson(person: { name: string; }) {
+  console.log(person.name);
+}
+// Gives error at age as we are explicitly passing the object
+printPerson({ name: "Jeff", age: 10 });
+// no error.
+const person3 = { name: "Jeff", age: 10 };
+printPerson(person3);

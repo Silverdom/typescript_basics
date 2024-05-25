@@ -58,3 +58,30 @@ interface PersonDetails2 {
 // -- not possible --
 // interface PersonName = number
 ```
+
+## Function types
+
+We can add type to the argument same way we do it for a variable and to add type to the return value of the function we add it after the argument ending bracker.
+
+```JSX
+function sum(a: number, b: number): number | null {
+  if (typeof a == "number" || typeof b == "number") {
+    return a + b;
+  } else {
+    return null;
+  }
+}
+```
+
+if we explicitly pass an object into a function it will only allow the values mentioned in the argument type, however if we pass a variable it will not do so
+
+```JSX
+function printPerson(person: { name: string; }) {
+  console.log(person.name);
+}
+// Gives error at age as we are explicitly passing the object
+printPerson({ name: "Jeff", age: 10 });
+// no error.
+const person3 = { name: "Jeff", age: 10 };
+printPerson(person3);
+```
