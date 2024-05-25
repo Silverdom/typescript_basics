@@ -66,7 +66,7 @@ function sum(a: number, b: number): number | null {
   }
 }
 
-function printPerson(person: { name: string; }) {
+function printPerson(person: { name: string; age?: number; }): void {
   console.log(person.name);
 }
 // Gives error at age as we are explicitly passing the object
@@ -74,3 +74,37 @@ printPerson({ name: "Jeff", age: 10 });
 // no error.
 const person3 = { name: "Jeff", age: 10 };
 printPerson(person3);
+
+
+// Destructing and default value
+
+type Options = {
+  debugMode?: boolean,
+  logLevel?: number;
+};
+
+function printLog(message: string, options: Options) {
+  console.log(message);
+}
+function printLog1(message: string, { debugMode = false, logLevel }: Options = {}) {
+  console.log(message, debugMode);
+}
+function printLog2(message: string, { debugMode = false } = {}) {
+  console.log(message);
+}
+printLog2("anc");
+
+// Rest operator type
+
+function sum2(...nums: number[]) {
+  // sum all nums
+}
+
+
+// Variables as function
+
+function sumWithCallback(a: number, b: number, cb: (sum: number) => void) {
+  cb(a + b);
+}
+// Question  why return type is not working
+sumWithCallback(1, 2, (sum) => sum);

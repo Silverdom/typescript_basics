@@ -85,3 +85,47 @@ printPerson({ name: "Jeff", age: 10 });
 const person3 = { name: "Jeff", age: 10 };
 printPerson(person3);
 ```
+
+## void type
+
+_void_ is used if a function doesnot return anything.
+Void means it is nothing and cannot be used in expressions ,however null or undefined can be used
+
+## Optional Parameters
+
+```JSX
+function printPerson(person: { name: string; age?: number; }): void {
+  console.log(person.name);
+}
+```
+
+## destructuring and rest operator type
+
+**rest operator**
+
+```JSX
+function sum2(...nums: number[]) {
+  // sum all nums
+}
+```
+
+**destructing**
+
+```JSX
+type Options = {
+  debugMode?: boolean,
+  logLevel?: number;
+};
+
+function printLog1(message: string, { debugMode = false, logLevel }: Options = {}) {
+  console.log(message, debugMode);
+}
+```
+
+## variable as function
+
+```JSX
+function sumWithCallback(a: number, b: number, cb: (sum: number) => void) {
+  cb(a + b);
+}
+```
