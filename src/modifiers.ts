@@ -40,3 +40,24 @@ let todoAndPerson2: TodoAndPersonInterface = {
     id: 8,
     todo: "Do something"
 };
+
+// readonly
+
+type PersonDet = {
+    readonly id: number,
+    name: string;
+    age?: number;
+};
+
+let personA: PersonDet = { id: 1, name: "Stacy" };
+personA.id = 5;
+console.log(personA);
+
+
+// keyof
+
+function getValue(key: keyof PersonDet, person: PersonDet) {
+    return person[key];
+}
+
+const abc: typeof getValue = getValue;

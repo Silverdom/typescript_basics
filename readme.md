@@ -31,3 +31,35 @@ type Todos = {
 };
 type TodoAndPerson = Person & Todos;
 ```
+
+## readonly
+
+TS will warn if any readonly property is updated
+
+```JSX
+type PersonDet = {
+    readonly id: number,
+    name: string;
+};
+
+let personA: PersonDet = { id: 1, name: "Stacy" };
+personA.id = 5;
+```
+
+## keyof
+
+adds the types of the keys
+
+```JSX
+function getValue(key: keyof PersonDet, person: PersonDet) {
+    return person[key];
+}
+```
+
+## typeof
+
+defines typeof the variable, works differently than javascript's typeof function
+
+```JSX
+const abc: typeof getValue = getValue;
+```
