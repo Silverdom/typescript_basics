@@ -61,3 +61,41 @@ function getValue(key: keyof PersonDet, person: PersonDet) {
 }
 
 const abc: typeof getValue = getValue;
+
+// Index types
+
+type TodoList = {
+    id: string | number,
+    date: string,
+    todo: {
+        id: string | number;
+        note: string;
+    };
+};
+
+let todo: TodoList["todo"] = {
+    id: 1,
+    note: "Do this"
+};
+
+type PersonA = {
+    name: string,
+    skillLevel: "Beginner" | "Intermediate" | "Expert";
+};
+
+type PeopleGroupedBySkills = {
+    [index in PersonA["skillLevel"]]: PersonA[];
+};
+
+type TextGroup = {
+    [index: string | number]: PersonA;
+};
+
+let groupBySkill: PeopleGroupedBySkills = {
+    Beginner: [{ name: "jake", skillLevel: "Beginner" }]
+};
+
+const a = ["asdas", "d", true];
+type A = (typeof a)[number];
+
+let m: A;

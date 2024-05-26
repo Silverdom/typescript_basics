@@ -63,3 +63,25 @@ defines typeof the variable, works differently than javascript's typeof function
 ```JSX
 const abc: typeof getValue = getValue;
 ```
+
+## Index types
+
+We can traverse type with index to get the type of that property of the object.
+
+```JSX
+type TodoList = {
+    id: string | number,
+    date: string,
+    todo: {
+        id: string | number;
+        note: string;
+    };
+};
+
+let todo: TodoList["todo"] = {
+    id: 1,
+    note: "Do this"
+};
+```
+
+We can even define what keys will be allowed in an object based on another property type, more examples on modifiers.js
