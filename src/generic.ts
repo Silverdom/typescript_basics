@@ -46,7 +46,7 @@ type MyObj<T> = {
 
 function aToO<T>(arrDes: MyType<T>): MyObj<T> {
     let obj: MyObj<T> = {};
-    arrDes.map((item: MyNewTuple<T>) => {
+    arrDes.map((item) => {
         obj[item[0]] = item[1];
     });
     return obj;
@@ -61,3 +61,13 @@ const arrDes: MyType<number | boolean> = [
 console.log(aToO<number | boolean>(arrDes));
 
 document.querySelector<HTMLInputElement>(".abc");
+
+function wait(duration: number): Promise<string> {
+    return new Promise<string>(resolve => {
+        setTimeout(() => resolve("Hi"), duration);
+    });
+}
+
+wait(1000).then(value => {
+    console.log(value.length);
+});
